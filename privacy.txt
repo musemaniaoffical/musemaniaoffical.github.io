@@ -1,0 +1,30 @@
+MuseMania Privacy Policy
+
+Effective Date: April 3, 2025
+
+This privacy policy applies to all applications developed and distributed by MuseMania ("we", "our", or "us") through Google Play Store.
+
+1. Information Collection
+We do not collect, store, or transmit any personal information or usage data through our applications. All document processing and file operations occur locally on your device.
+
+2. Data Usage
+As we do not collect any user data, there is no usage or sharing of personal information. Your documents remain strictly on your device unless you explicitly choose to share them through your device's native functions.
+
+3. Third-Party Services
+Our applications do not integrate with any third-party services that collect personal information. Any permissions requested by our apps are solely required for core functionality (e.g., file storage access for document viewing).
+
+4. Data Security
+We implement industry-standard security measures to ensure all file operations remain local and private. No data is transmitted over networks or stored on external servers.
+
+5. Policy Changes
+Any updates to this policy will be posted on this page. Continued use of our applications after changes constitutes acceptance of the revised policy.
+
+6. Your Rights
+You may request deletion of any app-related data by simply uninstalling the application from your device.
+
+Contact Information:
+For privacy-related inquiries, contact us at:
+Email: musemaniabusiness@gmail.com
+Studio Name: MuseMania
+
+This policy complies with Google Play's Developer Program Policies.
