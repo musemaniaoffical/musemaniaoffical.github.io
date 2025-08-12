@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小嘟爱宝贝❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 10;
+        }
+        
+        h1 {
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .love-btn {
+            background: #ff4d79;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .love-btn:hover {
+            transform: scale(1.1);
+            background: #ff1a4a;
+        }
+        
+        .message {
+            color: white;
+            font-size: 1.5em;
+            margin-top: 30px;
+            height: 60px;
+            font-weight: bold;
+        }
+        
+        /* 悬浮爱心 */
+        .floating-heart {
+            position: absolute;
+            font-size: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            animation: float 5s ease-in-out infinite;
+            user-select: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-50px) rotate(10deg); }
+        }
+        
+        /* 点击爆炸的爱心 */
+        .heart-burst {
+            position: absolute;
+            font-size: 20px;
+            color: red;
+            animation: burst 1s ease-out forwards;
+            pointer-events: none;
+        }
+        
+        @keyframes burst {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(10); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="https://music.163.com/song/media/outer/url?id=1824045033.mp3" type="audio/mpeg">
+        <!-- 备用音乐链接 -->
+    </audio>
+
+    <div class="container">
+        <h1>小嘟的宝贝❤️</h1>
+        <button class="love-btn" onclick="showLove()">点这里，有惊喜！</button>
+        <div class="message" id="typing"></div>
+    </div>
+
+    <!-- 悬浮爱心 -->
+    <div class="floating-heart" style="top: 20%; left: 10%">❤️</div>
+    <div class="floating-heart" style="top: 70%; left: 80%">❤️</div>
+    <div class="floating-heart" style="top: 40%; left: 60%">❤️</div>
+    <div class="floating-heart" style="top: 80%; left: 20%">❤️</div>
+
+    <script>
+        // 背景音乐（需要用户交互后播放）
+        document.addEventListener('click', function() {
+            const music = document.getElementById('bgMusic');
+            music.play().catch(e => console.log("音乐自动播放被阻止，请点击页面任意位置"));
+        });
+
+        // 点击按钮触发爱心爆炸 + 显示情话
+        function showLove() {
+            // 创建爆炸爱心
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-burst';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.animationDelay = Math.random() * 0.5 + 's';
+                document.body.appendChild(heart);
+                
+                // 移除爆炸后的爱心
+                setTimeout(() => {
+                    heart.remove();
+                }, 1000);
+            }
+
+            // 打字机效果显示情话
+            const messages = [
+                "小嘟永远爱你❤️",
+                "你是我的小太阳☀️",
+                "遇见你是最美好的事",
+                "想和你一起看遍世界🌍",
+                "Mua~ 小嘟爱你！"
+            ];
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            let i = 0;
+            const typingElement = document.getElementById('typing');
+            typingElement.innerHTML = '';
+            
+            const typingEffect = setInterval(() => {
+                if (i < randomMsg.length) {
+                    typingElement.innerHTML += randomMsg.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typingEffect);
+                }
+            }, 100);
+        }
+
+        // 页面加载时随机漂浮更多爱心
+        window.onload = function() {
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(heart);
+            }
+        };
+    </script>
+</body>
+</html>
