@@ -3,52 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QiXiang Game Studio | Dreamy Casual Play</title>
+    <title>MuseMania | Dreamy Casual Play</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Outfit:wght@800&display=swap" rel="stylesheet">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <style>
         :root {
             --pink-light: #ffafbd;
-            --purple-dream: #c9ffbf; /* We will use a custom gradient instead */
-            --main-gradient: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
             --female-accent: #ff85a2;
-            --glass: rgba(255, 255, 255, 0.15);
+            --glass: rgba(255, 255, 255, 0.12);
+            --neon-glow: 0 0 15px rgba(255, 133, 162, 0.5);
         }
 
         body, html {
             margin: 0;
             padding: 0;
             font-family: 'Quicksand', sans-serif;
-            background: #0f0c29; /* Fallback */
-            background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29);
+            background: #0f0c29;
+            background: linear-gradient(to bottom, #1a1a2e, #16213e, #0f0c29);
             color: #fff;
             overflow-x: hidden;
             min-height: 100vh;
         }
 
-        /* 动态背景特效 - 漂浮的泡泡 */
+        /* 动态背景特效 */
         .background-blobs {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            overflow: hidden;
         }
 
         .blob {
             position: absolute;
-            background: linear-gradient(135deg, rgba(255, 133, 162, 0.3), rgba(139, 92, 246, 0.3));
-            filter: blur(60px);
+            background: linear-gradient(135deg, rgba(255, 133, 162, 0.2), rgba(139, 92, 246, 0.2));
+            filter: blur(80px);
             border-radius: 50%;
-            animation: float 20s infinite alternate;
+            animation: float 25s infinite alternate;
         }
 
         @keyframes float {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(100px, 100px) scale(1.2); }
+            100% { transform: translate(150px, 150px) scale(1.3); }
         }
 
-        /* Header / Hero Section */
         header {
-            height: 80vh;
+            height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -59,195 +57,246 @@
 
         .studio-name {
             font-family: 'Outfit', sans-serif;
-            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-size: clamp(3.5rem, 12vw, 6rem);
             font-weight: 800;
-            background: linear-gradient(to right, #ffafbd, #ffc3a0, #eea2a2, #bbc1bf, #57e6e6, #b224ef, #7579ff);
-            background-size: 200% auto;
+            background: linear-gradient(to right, #ffafbd, #ff85a2, #a78bfa, #57e6e6);
+            background-size: 300% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shine 5s linear infinite;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 10px 20px rgba(255, 133, 162, 0.3));
+            animation: shine 8s linear infinite;
+            filter: drop-shadow(var(--neon-glow));
         }
 
         @keyframes shine {
-            to { background-position: 200% center; }
+            to { background-position: 300% center; }
         }
 
         .tagline {
-            font-size: 1.4rem;
-            color: #fce7f3;
-            max-width: 800px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin-top: 10px;
             font-weight: 300;
+            letter-spacing: 1px;
         }
 
-        /* Google Play Button Area */
-        .download-area {
-            margin-top: 40px;
+        /* 核心文案：不蒜子动态统计区 */
+        .social-proof {
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px 40px;
+            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
 
-        .play-store-btn {
+        .social-proof p {
+            margin: 0;
+            font-weight: 500;
+            color: #ffdeeb;
+            font-size: 1.1rem;
+        }
+
+        #visitor-count {
+            color: #ff85a2;
+            font-weight: 700;
+            font-size: 1.4rem;
+            text-shadow: var(--neon-glow);
+        }
+
+        /* 商店下载按钮 */
+        .download-btn {
             display: inline-flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 12px 35px;
+            margin-top: 25px;
+            background: #fff;
+            padding: 14px 40px;
             border-radius: 50px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
-            box-shadow: 0 15px 35px rgba(255, 133, 162, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 133, 162, 0.4);
         }
 
-        .play-store-btn:hover {
-            transform: scale(1.05) translateY(-5px);
-            background: #fff;
+        .download-btn:hover {
+            transform: scale(1.08) translateY(-5px);
             box-shadow: 0 20px 40px rgba(255, 133, 162, 0.6);
         }
 
-        .play-store-btn img {
-            height: 40px;
+        .download-btn img {
+            height: 38px;
         }
 
-        /* Main Content Glass Panels */
+        /* 内容板块 */
         .container {
             max-width: 1000px;
-            margin: -50px auto 100px;
+            margin: -60px auto 80px;
             padding: 20px;
         }
 
         .glass-card {
             background: var(--glass);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 40px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 45px;
             padding: 50px;
             margin-bottom: 40px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
         }
 
         h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: #ff85a2;
             margin-top: 0;
-            display: flex;
-            align-items: center;
+            letter-spacing: -1px;
         }
 
-        h2::after {
-            content: "✨";
-            margin-left: 15px;
-            font-size: 1.5rem;
-        }
-
-        .intro-text {
-            font-size: 1.15rem;
+        .intro-text p {
+            font-size: 1.1rem;
             color: #e2e8f0;
-            line-height: 1.8;
+            line-height: 1.9;
         }
 
-        /* Feedback Section */
-        .feedback-section {
+        /* 联系区 */
+        .contact-box {
             text-align: center;
+            background: linear-gradient(135deg, rgba(255, 133, 162, 0.1), rgba(167, 139, 250, 0.1));
         }
 
-        .contact-email {
+        .email-link {
             display: inline-block;
-            margin-top: 20px;
-            padding: 20px 40px;
-            background: rgba(255, 133, 162, 0.1);
-            border: 2px dashed rgba(255, 133, 162, 0.5);
-            border-radius: 20px;
+            margin-top: 15px;
+            padding: 15px 35px;
             color: #ff85a2;
+            border: 2px solid rgba(255, 133, 162, 0.3);
+            border-radius: 15px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.2rem;
             transition: 0.3s;
         }
 
-        .contact-email:hover {
+        .email-link:hover {
             background: rgba(255, 133, 162, 0.2);
-            transform: translateY(-2px);
+            border-color: #ff85a2;
         }
 
-        /* Footer */
         footer {
             text-align: center;
-            padding: 60px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.6);
-            margin: 0 15px;
+            color: #94a3b8;
+            margin: 0 12px;
             text-decoration: none;
-            font-size: 0.9rem;
         }
 
         .footer-links a:hover { color: #ff85a2; }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .glass-card { padding: 30px; border-radius: 30px; }
-            .studio-name { font-size: 3rem; }
+            .studio-name { font-size: 3.2rem; }
+            .social-proof { padding: 15px 25px; border-radius: 30px; }
         }
     </style>
 </head>
 <body>
 
+    <span id="busuanzi_container_site_uv" style="display:none">
+        <span id="busuanzi_value_site_uv"></span>
+    </span>
+
     <div class="background-blobs">
-        <div class="blob" style="width: 400px; height: 400px; top: 10%; left: -10%;"></div>
-        <div class="blob" style="width: 300px; height: 300px; bottom: 10%; right: -5%; animation-delay: -5s;"></div>
+        <div class="blob" style="width: 500px; height: 500px; top: -10%; left: -10%;"></div>
+        <div class="blob" style="width: 400px; height: 400px; bottom: -10%; right: -5%; animation-delay: -3s;"></div>
     </div>
 
     <header>
         <div class="studio-name">MuseMania</div>
-        <p class="tagline">Leading the evolution of global casual gaming since 2023. We transform creative inspiration into world-class digital experiences.</p>
+        <p class="tagline">Crafting "Manic Joy" through aesthetic casual play. <br>Where every pixel tells a story.</p>
         
-        <div class="download-area">
-            <p style="margin-bottom: 15px; font-weight: 500; color: #ffafbd;">Explore Our Global Portfolio on</p>
-            <a href="https://play.google.com/store/apps/dev?id=4629865579958350816&hl=en-us&gl=us" class="play-store-btn" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
-            </a>
+        <div class="social-proof">
+            <p>
+                <span style="color: #ffafbd; font-weight: 700; letter-spacing: 2px;">✨ PLAYERS' CHOICE ✨</span><br>
+                More than <span id="visitor-count" style="color: #ff85a2; font-size: 1.6rem; text-shadow: 0 0 15px rgba(255,133,162,0.6);">100,000</span> curious minds have already <br>
+                found their favorite games here. 
+                <span style="display:block; margin-top: 10px; font-size: 1.05rem; color: #fff; font-weight: 500;">
+                    The next dreamy adventure is waiting for you! 🎀
+                </span>
+            </p>
         </div>
+
+        <a href="https://play.google.com/store/apps/dev?id=4629865579958350816&hl=en-us&gl=us" class="download-btn" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+        </a>
     </header>
 
     <main class="container">
         <section class="glass-card">
-            <h2>The MuseMania Legacy</h2>
+            <h2>Our Global Legacy</h2>
             <div class="intro-text">
-                <p>Founded in <b>2023</b>, MuseMania has rapidly emerged as a powerhouse in the <b>Global Casual Gaming</b> sector. Our mission is to bridge the gap between high-end technology and intuitive entertainment.</p>
-                <p>We don't just develop apps; we engineer "Manic Joy." By leveraging data-driven insights and avant-garde design, we create titles that resonate with millions of players across North America, Europe, and Asia.</p>
+                <p>Born from a vision of <b>Aesthetic Excellence</b> in 2023, MuseMania has grown into a world-class studio for high-frequency casual entertainment. We believe in the power of simple, beautiful interactions.</p>
+                <p>Our games are designed to be your digital sanctuary—offering a perfect blend of high-end tech and dreamy visuals that resonate with a global community of modern players.</p>
             </div>
         </section>
 
-        <section class="glass-card">
-            <h2>Global Excellence</h2>
-            <div class="intro-text">
-                <p>Deeply rooted in the casual genre, MuseMania prioritizes <b>scalability, engagement, and aesthetic perfection</b>. Our dedicated labs in R&D and Global Operations ensure that every product is optimized for a worldwide audience.</p>
-                <p>In the ever-evolving mobile landscape, we stand for "Innovation with Impact"—crafting the next generation of digital classics.</p>
-            </div>
-        </section>
-
-        <section class="glass-card feedback-section">
-            <h2>Strategic Partnerships</h2>
-            <p style="color: #94a3b8;">Elevate the world of gaming with us. For global publishing, business inquiries, or career opportunities, connect with our elite team.</p>
-            <a href="mailto:musemaniabusiness@gmail.com" class="contact-email">
-                📧 musemaniabusiness@gmail.com
+        <section class="glass-card contact-box">
+            <h2>Direct Connection</h2>
+            <p style="color: #cbd5e1;">Your feedback fuels our innovation. For publishing, support, or to say hello, reach out to our elite team.</p>
+            <a href="mailto:musemaniabusiness@gmail.com" class="email-link">
+                ✉️ musemaniabusiness@gmail.com
             </a>
         </section>
     </main>
 
     <footer>
         <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="https://play.google.com/store/apps/dev?id=4629865579958350816">Global Distribution</a>
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="https://play.google.com/store/apps/dev?id=4629865579958350816">Store Profile</a>
         </div>
-        <p style="margin-top: 20px; color: rgba(255,255,255,0.4); font-size: 0.8rem;">
-            &copy; 2026 MuseMania Studio. Empowering Global Play.
+        <p style="margin-top: 20px;">
+            &copy; 2026 MuseMania Studio. Empowering Aesthetic Play.
         </p>
     </footer>
+
+    <script>
+        function startCounting() {
+            const target = document.getElementById('visitor-count');
+            const baseNumber = 100000; // 你的初始底数
+
+            // 使用定时轮询，确保抓取到异步加载的不蒜子数据
+            let counterScraper = setInterval(function() {
+                const uvData = document.getElementById('busuanzi_value_site_uv');
+                
+                // 检查不蒜子是否已经成功返回数据
+                if (uvData && uvData.textContent.trim() !== "") {
+                    let actualVisits = parseInt(uvData.textContent);
+                    
+                    if (!isNaN(actualVisits)) {
+                        // 计算最终数字：底数 + 真实访客数
+                        let finalDisplay = baseNumber + actualVisits;
+                        
+                        // 格式化数字，带上千分位逗号 (例如 100,025)
+                        target.innerText = finalDisplay.toLocaleString();
+                        
+                        // 成功更新后，停止轮询
+                        clearInterval(counterScraper);
+                        console.log("Community tally updated to: " + finalDisplay);
+                    }
+                }
+            }, 500); // 每 0.5 秒检查一次
+
+            // 安全机制：如果 10 秒后还没加载出来，停止检查，保持 100,000 默认显示
+            setTimeout(() => clearInterval(counterScraper), 10000);
+        }
+
+        // 监听页面加载完成事件
+        window.addEventListener('load', startCounting);
+    </script>
 
 </body>
 </html>
