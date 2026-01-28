@@ -3,173 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MuseMania | Privacy & Trust</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>QiXiang Game Studio | Dreamy Casual Play</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Outfit:wght@800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-accent: #10b981; /* Emerald for trust/security */
-            --secondary-accent: #06b6d4; /* Cyan for tech */
-            --bg-color: #030712;
-            --card-bg: rgba(17, 24, 39, 0.7);
+            --pink-light: #ffafbd;
+            --purple-dream: #c9ffbf; /* We will use a custom gradient instead */
+            --main-gradient: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+            --female-accent: #ff85a2;
+            --glass: rgba(255, 255, 255, 0.15);
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 40%);
-            color: #e5e7eb;
-            line-height: 1.7;
+        body, html {
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background: #0f0c29; /* Fallback */
+            background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
+        /* 动态背景特效 - 漂浮的泡泡 */
+        .background-blobs {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
         }
 
-        /* Header Style */
+        .blob {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(255, 133, 162, 0.3), rgba(139, 92, 246, 0.3));
+            filter: blur(60px);
+            border-radius: 50%;
+            animation: float 20s infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 100px) scale(1.2); }
+        }
+
+        /* Header / Hero Section */
         header {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            margin-bottom: 60px;
+            padding: 20px;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            background: linear-gradient(to right, #fff, var(--secondary-accent));
+        .studio-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 800;
+            background: linear-gradient(to right, #ffafbd, #ffc3a0, #eea2a2, #bbc1bf, #57e6e6, #b224ef, #7579ff);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-
-        .shield-icon {
-            font-size: 3rem;
+            animation: shine 5s linear infinite;
             margin-bottom: 20px;
-            display: block;
+            filter: drop-shadow(0 10px 20px rgba(255, 133, 162, 0.3));
         }
 
-        /* Section Cards */
-        section {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            color: #fce7f3;
+            max-width: 800px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-weight: 300;
+        }
+
+        /* Google Play Button Area */
+        .download-area {
+            margin-top: 40px;
+        }
+
+        .play-store-btn {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 35px;
+            border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            box-shadow: 0 15px 35px rgba(255, 133, 162, 0.4);
+        }
+
+        .play-store-btn:hover {
+            transform: scale(1.05) translateY(-5px);
+            background: #fff;
+            box-shadow: 0 20px 40px rgba(255, 133, 162, 0.6);
+        }
+
+        .play-store-btn img {
+            height: 40px;
+        }
+
+        /* Main Content Glass Panels */
+        .container {
+            max-width: 1000px;
+            margin: -50px auto 100px;
+            padding: 20px;
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 40px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
         }
 
         h2 {
-            color: var(--primary-accent);
-            font-size: 1.4rem;
+            font-size: 2.2rem;
+            color: #ff85a2;
             margin-top: 0;
             display: flex;
             align-items: center;
         }
 
-        h2::before {
-            content: "•";
-            margin-right: 10px;
-            color: var(--secondary-accent);
+        h2::after {
+            content: "✨";
+            margin-left: 15px;
+            font-size: 1.5rem;
         }
 
-        ul {
-            list-style: none;
-            padding: 0;
+        .intro-text {
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            line-height: 1.8;
         }
 
-        ul li {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: flex-start;
-        }
-
-        ul li::before {
-            content: "✓";
-            color: var(--primary-accent);
-            margin-right: 15px;
-            font-weight: bold;
-        }
-
-        /* Contact Box */
-        .contact-box {
+        /* Feedback Section */
+        .feedback-section {
             text-align: center;
-            background: linear-gradient(145deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1));
-            border: 1px solid rgba(16, 185, 129, 0.2);
         }
 
-        a {
-            color: var(--secondary-accent);
+        .contact-email {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 20px 40px;
+            background: rgba(255, 133, 162, 0.1);
+            border: 2px dashed rgba(255, 133, 162, 0.5);
+            border-radius: 20px;
+            color: #ff85a2;
             text-decoration: none;
-            transition: all 0.3s;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: 0.3s;
         }
 
-        a:hover {
-            color: var(--primary-accent);
-            text-decoration: underline;
+        .contact-email:hover {
+            background: rgba(255, 133, 162, 0.2);
+            transform: translateY(-2px);
         }
 
-        .footer-note {
+        /* Footer */
+        footer {
             text-align: center;
-            font-size: 0.9rem;
-            color: #6b7280;
-            margin-top: 50px;
+            padding: 60px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover { color: #ff85a2; }
 
         /* Responsive */
-        @media (max-width: 600px) {
-            section { padding: 25px; }
-            h1 { font-size: 2rem; }
+        @media (max-width: 768px) {
+            .glass-card { padding: 30px; border-radius: 30px; }
+            .studio-name { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <span class="shield-icon">🛡️</span>
-            <h1>MuseMania Privacy Center</h1>
-            <p style="color: #9ca3af;">Protecting your digital workspace since 2026</p>
-        </header>
+    <div class="background-blobs">
+        <div class="blob" style="width: 400px; height: 400px; top: 10%; left: -10%;"></div>
+        <div class="blob" style="width: 300px; height: 300px; bottom: 10%; right: -5%; animation-delay: -5s;"></div>
+    </div>
 
-        <section>
-            <h2>Who We Are</h2>
-            <p>MuseMania specializes in developing high-performance utility applications, including <b>PDF Viewers</b> and <b>Productivity Tools</b>. Our architecture is built on a "Privacy-First" philosophy—ensuring your professional documents remain yours alone.</p>
+    <header>
+        <div class="studio-name">MuseMania</div>
+        <p class="tagline">Leading the evolution of global casual gaming since 2023. We transform creative inspiration into world-class digital experiences.</p>
+        
+        <div class="download-area">
+            <p style="margin-bottom: 15px; font-weight: 500; color: #ffafbd;">Explore Our Global Portfolio on</p>
+            <a href="https://play.google.com/store/apps/dev?id=4629865579958350816&hl=en-us&gl=us" class="play-store-btn" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="glass-card">
+            <h2>The MuseMania Legacy</h2>
+            <div class="intro-text">
+                <p>Founded in <b>2023</b>, MuseMania has rapidly emerged as a powerhouse in the <b>Global Casual Gaming</b> sector. Our mission is to bridge the gap between high-end technology and intuitive entertainment.</p>
+                <p>We don't just develop apps; we engineer "Manic Joy." By leveraging data-driven insights and avant-garde design, we create titles that resonate with millions of players across North America, Europe, and Asia.</p>
+            </div>
         </section>
 
-        <section>
-            <h2>Privacy Commitments</h2>
-            <ul>
-                <li><strong>Zero Collection:</strong> We do not collect, track, or store any personally identifiable information (PII).</li>
-                <li><strong>No Accounts:</strong> Our tools are ready to use instantly; no user registration or sign-in required.</li>
-                <li><strong>Local Sovereignty:</strong> All file processing and data storage occur exclusively on your local device.</li>
-                <li><strong>Third-Party Clean:</strong> We never share, sell, or transmit your data to third-party entities.</li>
-            </ul>
+        <section class="glass-card">
+            <h2>Global Excellence</h2>
+            <div class="intro-text">
+                <p>Deeply rooted in the casual genre, MuseMania prioritizes <b>scalability, engagement, and aesthetic perfection</b>. Our dedicated labs in R&D and Global Operations ensure that every product is optimized for a worldwide audience.</p>
+                <p>In the ever-evolving mobile landscape, we stand for "Innovation with Impact"—crafting the next generation of digital classics.</p>
+            </div>
         </section>
 
-        <section>
-            <h2>Data Security Architecture</h2>
-            <p>Your documents are never uploaded to a cloud. MuseMania utilizes <b>On-Device Processing</b>, meaning the sensitive contents of your PDFs and files never leave the physical memory of your smartphone or tablet.</p>
-        </section>
-
-        <section class="contact-box">
-            <h3>Support & Inquiries</h3>
-            <p>Have questions about your data security? Reach out to our team:</p>
-            <a href="mailto:musemaniabusiness@gmail.com" style="font-size: 1.2rem; font-weight: 600;">
-                musemaniabusiness@gmail.com
+        <section class="glass-card feedback-section">
+            <h2>Strategic Partnerships</h2>
+            <p style="color: #94a3b8;">Elevate the world of gaming with us. For global publishing, business inquiries, or career opportunities, connect with our elite team.</p>
+            <a href="mailto:musemaniabusiness@gmail.com" class="contact-email">
+                📧 musemaniabusiness@gmail.com
             </a>
         </section>
+    </main>
 
-        <div class="footer-note">
-            <p>Looking for the legal details? <a href="privacy.txt">Read the raw Privacy.txt</a></p>
-            <p>&copy; 2026 MuseMania Utility Studio. All Rights Reserved.</p>
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="https://play.google.com/store/apps/dev?id=4629865579958350816">Global Distribution</a>
         </div>
-    </div>
+        <p style="margin-top: 20px; color: rgba(255,255,255,0.4); font-size: 0.8rem;">
+            &copy; 2026 MuseMania Studio. Empowering Global Play.
+        </p>
+    </footer>
 
 </body>
 </html>
