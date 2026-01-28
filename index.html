@@ -3,44 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MuseMania - Privacy Policy</title>
+    <title>MuseMania | Privacy & Trust</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+        :root {
+            --primary-accent: #10b981; /* Emerald for trust/security */
+            --secondary-accent: #06b6d4; /* Cyan for tech */
+            --bg-color: #030712;
+            --card-bg: rgba(17, 24, 39, 0.7);
         }
-        h1 { color: #333; }
-        .contact { margin-top: 30px; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 40%);
+            color: #e5e7eb;
+            line-height: 1.7;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        /* Header Style */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, var(--secondary-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .shield-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Section Cards */
+        section {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            color: var(--primary-accent);
+            font-size: 1.4rem;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "•";
+            margin-right: 10px;
+            color: var(--secondary-accent);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        ul li::before {
+            content: "✓";
+            color: var(--primary-accent);
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            text-align: center;
+            background: linear-gradient(145deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        a {
+            color: var(--secondary-accent);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary-accent);
+            text-decoration: underline;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            section { padding: 25px; }
+            h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
-    <h1>MuseMania Privacy Policy</h1>
-    
-    <h2>About Us</h2>
-    <p>MuseMania specializes in developing practical utility applications including PDF viewers and productivity tools. We prioritize user privacy protection above all else.</p>
 
-    <h2>Privacy Policy</h2>
-    <p>Our applications:</p>
-    <ul>
-        <li>Do not collect any personally identifiable information</li>
-        <li>Do not require user account creation</li>
-        <li>Do not share user data with third parties</li>
-        <li>Store processed files locally on device only</li>
-    </ul>
+    <div class="container">
+        <header>
+            <span class="shield-icon">🛡️</span>
+            <h1>MuseMania Privacy Center</h1>
+            <p style="color: #9ca3af;">Protecting your digital workspace since 2026</p>
+        </header>
 
-    <h2>Data Security</h2>
-    <p>All file processing occurs locally on your device. We do not store or transmit any document contents.</p>
+        <section>
+            <h2>Who We Are</h2>
+            <p>MuseMania specializes in developing high-performance utility applications, including <b>PDF Viewers</b> and <b>Productivity Tools</b>. Our architecture is built on a "Privacy-First" philosophy—ensuring your professional documents remain yours alone.</p>
+        </section>
 
-    <div class="contact">
-        <h3>Contact Us</h3>
-        <p>For any inquiries, please email:<br>
-        <a href="mailto:musemaniabusiness@gmail.com">musemaniabusiness@gmail.com</a></p>
+        <section>
+            <h2>Privacy Commitments</h2>
+            <ul>
+                <li><strong>Zero Collection:</strong> We do not collect, track, or store any personally identifiable information (PII).</li>
+                <li><strong>No Accounts:</strong> Our tools are ready to use instantly; no user registration or sign-in required.</li>
+                <li><strong>Local Sovereignty:</strong> All file processing and data storage occur exclusively on your local device.</li>
+                <li><strong>Third-Party Clean:</strong> We never share, sell, or transmit your data to third-party entities.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Data Security Architecture</h2>
+            <p>Your documents are never uploaded to a cloud. MuseMania utilizes <b>On-Device Processing</b>, meaning the sensitive contents of your PDFs and files never leave the physical memory of your smartphone or tablet.</p>
+        </section>
+
+        <section class="contact-box">
+            <h3>Support & Inquiries</h3>
+            <p>Have questions about your data security? Reach out to our team:</p>
+            <a href="mailto:musemaniabusiness@gmail.com" style="font-size: 1.2rem; font-weight: 600;">
+                musemaniabusiness@gmail.com
+            </a>
+        </section>
+
+        <div class="footer-note">
+            <p>Looking for the legal details? <a href="privacy.txt">Read the raw Privacy.txt</a></p>
+            <p>&copy; 2026 MuseMania Utility Studio. All Rights Reserved.</p>
+        </div>
     </div>
 
-    <p>Full privacy policy available at: <a href="privacy.txt">privacy.txt</a></p>
 </body>
 </html>
